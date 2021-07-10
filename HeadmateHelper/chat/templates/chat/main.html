@@ -1,0 +1,22 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+    <div id="chatView">
+      {% for entry in chat_history %}
+        <div class='post'>
+          <h5 class='postTitle'>{{ entry.headmate.name }} - {{ entry.time_stamp }}</h5>
+          <p class='postText'>{{ entry.text }}</p>
+        </div>
+      {% endfor %}
+    </div>
+    <div id="newMsgDiv">
+      <form id="newMsgForm" method="post">
+        {% csrf_token %}
+        <input type="text" id="newMsgField" name="chat_text">
+        <input type="submit" id="newMsgButton" value="Send" name="chat_send">
+      </form>
+    </div>
+  </main>
+{% endblock %}

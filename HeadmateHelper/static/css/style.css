@@ -1,0 +1,174 @@
+/* GLOBAL SETTINGS */
+
+body {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  /* overflow: hidden; */
+  height: 100vh;
+  margin: 0px;
+  padding: 0px;
+  /* border: 2px solid blue; */
+  box-sizing: border-box;
+}
+
+/* SEE ALL DIVS FOR EDITING PURPOSES */
+
+/* div, main {
+  border: 1px solid black;
+} */
+
+/* HEADER BAR SETTINGS */
+
+header {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+  box-sizing: border-box;
+}
+
+#mainButton {
+  height: 50px;
+  width: 50px;
+}
+
+#menuTitle {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#whoIsFront {
+  padding-left: 10px;
+  font-size: 20px;
+}
+
+/* BUTTONS */
+
+.headerButton {
+  width: 60px;
+}
+
+#switchButton {
+  height: 50px;
+}
+
+#newAlterButtons {
+  display: none;
+}
+
+#saveButton {
+  height: 30px;
+}
+
+#cancelButton {
+  height: 20px;
+}
+
+/* HEADER MENUS */
+
+.switchClose {
+  display: none;
+}
+
+.switchExpand {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  width: 200;
+  height: 100;
+  left: auto;
+  right: 0;
+  margin-right: 2%;
+  background-color: white;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.mainClose {
+  display: none;
+}
+
+.mainExpand {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  width: 200;
+  height: 100;
+  left: 0;
+  right: auto;
+  margin-left:2%;
+  background-color: white;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+/* MAIN - CONTENT AREA SETTINGS */
+
+main {
+  width: 100%;
+  display: flex;
+  flex-basis: 0px;
+  flex-shrink: 1;
+  flex-flow: column nowrap;
+  align-items: center;
+  flex-grow: 10;
+  /* border: 2px solid red; */
+  box-sizing: border-box;
+}
+
+/* CHAT VIEW */
+
+#chatView {
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-flow: column-reverse nowrap;
+  flex-basis: 0px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  align-items: left;
+  margin-top: 5px;
+}
+
+.postTitle {
+  padding: 0;
+  margin: 0;
+}
+
+.postText {
+  padding: 0;
+  margin: 0;
+}
+
+/* NEW MESSAGE FIELD AT BOTTOM */
+
+#newMsgForm {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+#newMsgDiv {
+  width: 99%;
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  padding-bottom: 5px;
+}
+
+#newMsgField {
+  flex-grow: 1;
+  width: 85%;
+}
