@@ -1,7 +1,8 @@
 from django.db import models
-from system.models import Headmates
+from system.models import Headmates, Profile
 
 class Rooms(models.Model):
+    system = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='rooms')
     name = models.CharField(max_length=100)
 
 class Chat(models.Model):

@@ -1,10 +1,5 @@
 from django.forms import ModelForm
-from .models import Headmates, Profile
-
-class NewAlterForm(ModelForm):
-    class Meta:
-        model = Headmates
-        fields = ['name', 'pronouns', 'proxy']
+from system.models import Profile, Headmates
 
 class NewSystemForm(ModelForm):
     def __init__(self, *args, **kwargs):

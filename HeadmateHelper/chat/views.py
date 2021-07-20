@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .models import Rooms, Chat
-from system.models import Headmates
+from system.models import Headmates, Profile
 from system.views import switch
 
 
@@ -10,15 +10,13 @@ from system.views import switch
 
 
 def main_chat(request):
-    if len(Rooms.objects.filter(id=1)) == 1:
-        current_room = Rooms.objects.get(id=1)
+    if len(Rooms.objects.filter(system=request.user.profile, name='main')) == 1:
+        current_room = Rooms.objects.filter(system=request.user.profile, name='main')[0]
         room_name = current_room.name
-    else: # IF FIRST TIME OPENING APP
-        current_room = Rooms.objects.create(name='main')
-        room_name = current_room.name
+
     if request.method == 'GET':
-        if len(Headmates.objects.filter(id=1)) == 0: # IF FIRST TIME OPENING APP
-            Headmates.objects.create(name='Unknown', front=True)
+        if len(Headmates.objects.filter(system=request.user.profile, name='Unknown')) == 0: # IF FIRST TIME OPENING APP
+            Headmates.objects.create(system=request.user.profile, name='Unknown', front=True)
         chat_history = Chat.objects.filter(room=current_room).order_by('-id')[:100:1]
 
         context = {

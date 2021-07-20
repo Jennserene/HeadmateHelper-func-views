@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, name='profile')
+    profile_of = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     system_name = models.CharField(max_length=50, blank=True, null=True)
     public_name = models.CharField(max_length=50, blank=True, null=True)
     body_age = models.IntegerField(blank=True, null=True)
@@ -13,7 +13,7 @@ class Profile(models.Model):
     hobbies_interests = models.TextField(blank=True, null=True)
 
 class Headmates(models.Model):
-    system = models.ForeignKey(Profile, on_delete=models.CASCADE, name='headmates')
+    system = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='headmates')
     name = models.CharField(max_length=50)
     front = models.BooleanField(default=False)
     pronouns = models.CharField(max_length=100, blank=True, null=True)
